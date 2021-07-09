@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, Image } from 'react-native';
 
 import {
     BackSVG,
@@ -30,51 +30,28 @@ export default function Navbar(props: any) {
         containerStyle.paddingBottom = paddingBottom;
     }
 
-    const getImage = (imageName: string) => {
+    const getImage = (imageName) => {
         switch (imageName) {
-            case 'search':
+            case 'notication':
                 return (
-                    <SearchSVG
-                        height={NL(20, 'width')}
-                        width={NL(20, 'width')}
+                    <Image
+                        source={require('../../assets/images/navIcon.png')}
+                        style={styles.navIcon}
                     />
                 );
             case 'cross':
                 return (
-                    <CrossSVG
-                        height={NL(25, 'width')}
-                        width={NL(25, 'width')}
+                    <Image
+                        source={require('../../assets/images/notification.png')}
+                        style={styles.navIcon}
                     />
                 );
-            case 'back':
-                return (
-                    <BackSVG 
-                        height={NL(18, 'width')} 
-                        width={NL(18, 'width')} 
-                    />
-                );
-            case 'blackCross':
-                return (
-                    <BlackCrossSVG
-                        height={NL(25, 'width')}
-                        width={NL(25, 'width')}
-                    />
-                );
-            case 'up':
-                return (
-                    <UpSVG height={NL(25, 'width')} width={NL(25, 'width')} />
-                );
-            case 'down':
-                return (
-                    <DownSVG height={NL(25, 'width')} width={NL(25, 'width')} />
-                );
-
             default:
                 return null;
         }
     };
 
-    const renderIcon = (icon: any, _onPress: any) => (
+    const renderIcon = (icon, _onPress) => (
         <TouchableOpacity onPress={_onPress}>
             {getImage(icon)}
         </TouchableOpacity>
@@ -130,5 +107,11 @@ const styles = StyleSheet.create({
     },
     rightIconContainer: {
         marginLeft: NL(12, 'width')
+    },
+    navIcon:{
+        height:NL(30),
+        width:NL(30),
+        marginHorizontal:NL(5),
+        resizeMode:'contain'
     }
 });

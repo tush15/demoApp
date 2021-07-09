@@ -8,8 +8,6 @@ import {
     Platform
 } from 'react-native';
 
-import { SearchSVG, CrossSVG } from '../../assets/svgs';
-
 import { NL } from '../../styles';
 
 export default function Textbox(props: any) {
@@ -93,14 +91,9 @@ export default function Textbox(props: any) {
                     multiline={!!height}
                     editable={editable}
                     autoCapitalize={autoCapitalize}
+                    backgroundColor={backgroundColor}
                 />
-                {rightIcon && (
-                    <CrossSVG
-                        height={NL(14, 'width')}
-                        width={NL(14, 'width')}
-                        style={{ marginRight: NL(6, 'width'), paddingTop: 0 }}
-                    />
-                )}
+               
 
                 {rightText && (
                     <TouchableOpacity onPress={rightOnPress}>
@@ -123,9 +116,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: NL(10, 'height'),
         borderWidth: 1,
-        borderColor: '#EDEEEE',
+        borderColor: '#869D9C',
         paddingHorizontal: NL(16, 'width'),
-        height: NL(40, 'width')
+        height: NL(40, 'width'),
+        backgroundColor:'#0000',
+        marginTop:NL(7),
+        marginBottom:NL(15)
     },
     textInputStyle: {
         fontSize: NL(13, 'width'),
